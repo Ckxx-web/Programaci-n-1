@@ -1,0 +1,25 @@
+#ingresar un producto y precio, luego mostrar el total con IVA -
+#Encapsular el cálculo del total de una factura incluyendo impuestos.
+
+class Factura:
+    def __init__(self, producto, precio):
+        self.__producto = producto    
+        self.__precio = precio        
+        self.__iva = 0.19           
+
+    
+    def calcular_total(self):
+        return self.__precio * (1 + self.__iva)
+
+
+    def mostrar_factura(self):
+        print(f"Producto: {self.__producto}")
+        print(f"Precio sin IVA: ${self.__precio:.2f}")
+        print(f"Total con IVA: ${self.calcular_total():.2f}")
+
+
+producto = input("Ingresa el nombre del producto: ")
+precio = float(input("Ingresa el precio del producto: "))
+
+mi_factura = Factura(producto, precio)
+mi_factura.mostrar_factura()
