@@ -1,1 +1,29 @@
+class Libro:
+    def __init__(self, titulo , autor, año_publicacion ):
+        self.titulo = titulo
+        self.autor = autor
+        self.año_publicacion = año_publicacion
+        self.disponible = True  #  el libro está disponible
 
+    def prestar(self):
+        if self.disponible:
+            self.disponible = False
+            return f"El libro '{self.titulo}' ha sido prestado."
+        return f"El libro '{self.titulo}' no está disponible."
+
+    def devolver(self):
+        self.disponible = True
+        return f"El libro '{self.titulo}' ha sido devuelto."
+
+    def informacion(self):
+        estado = "Disponible" if self.disponible else "Prestado"
+        return f"'{self.titulo}' por {self.autor} ({self.año_publicacion}) - Estado: {estado}"
+
+
+# Ejemplo de uso
+libro1 = Libro("Indigno de ser humano", "Osamu Dazai", 1948)
+print(libro1.informacion())  # Información del libro
+print(libro1.prestar())  # Se presta el libro
+print(libro1.informacion())  # Estado actualizado
+print(libro1.devolver())  # Se devuelve el libro
+print(libro1.informacion())  # Estado actualizado nuevamente
