@@ -1,0 +1,37 @@
+#Simular un pago y mostrar su estado - Encapsular la información de
+#pago y restringir el acceso directo a los datos sensibles.
+
+class Pago:
+    def __init__(self, monto, numero_tarjeta):
+        self.__monto = monto  
+        self.__numero_tarjeta = numero_tarjeta  
+        self.__estado = "Pendiente"  
+
+    
+    def procesar_pago(self):
+        if self.__validar_tarjeta():
+            self.__estado = "Pago exitoso"
+        else:
+            self.__estado = "Pago fallido"
+
+   
+    def __validar_tarjeta(self):
+        return len(self.__numero_tarjeta) == 16 and self.__numero_tarjeta.isdigit()
+
+   
+    def obtener_estado(self):
+        return self.__estado
+
+    
+    def mostrar_resumen(self):
+        print(f"Monto: ${self.__monto}")
+        print(f"Estado del pago: {self.__estado}")
+
+
+pago1 = Pago(5000, "2878967890654231")
+pago1.procesar_pago()
+pago1.mostrar_resumen()
+
+print(pago1._Pago__numero_tarjeta)  #aqui accede a los datos priv
+print(pago1._Pago__monto)
+print(pago1._Pago__estado)
