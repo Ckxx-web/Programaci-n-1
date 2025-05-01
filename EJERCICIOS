@@ -3,7 +3,7 @@ class Libro:
         self.titulo = titulo
         self.autor = autor
         self.año_publicacion = año_publicacion
-        self.disponible = True  #  el libro está disponible
+        self.disponible = True  
 
     def prestar(self):
         if self.disponible:
@@ -19,8 +19,6 @@ class Libro:
         estado = "Disponible" if self.disponible else "Prestado"
         return f"'{self.titulo}' por {self.autor} ({self.año_publicacion}) - Estado: {estado}"
 
-
-# Ejemplo de uso
 libro1 = Libro("Indigno de ser humano", "Osamu Dazai", 1948)
 print(libro1.informacion())  # Información del libro
 print(libro1.prestar())  # Se presta el libro
