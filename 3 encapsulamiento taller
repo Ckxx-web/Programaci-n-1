@@ -1,0 +1,19 @@
+class Cuenta:
+    def __init__(self, usuario, contraseña):
+        self.__usuario = usuario     
+        self.__contraseña = contraseña  
+
+ 
+    def validar_acceso(self, usuario_ingresado, contraseña_ingresada):
+        if usuario_ingresado == self.__usuario and contraseña_ingresada == self.__contraseña:
+            return "Acceso permitido"
+        else:
+            return "Acceso denegado"
+
+
+mi_cuenta = Cuenta("nat", "123")
+
+
+print(mi_cuenta.validar_acceso("mar", "contra"))  
+print(mi_cuenta.validar_acceso("nar", "0987"))  
+print(mi_cuenta.validar_acceso("var", "salir"))  
