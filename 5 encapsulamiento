@@ -1,0 +1,42 @@
+#Probar cada opción cambiando el valor con el setter y ejecutando laacción - Encapsular una selección de opciones, permitiendo acceder y modificar la opción elegida de forma controlada
+class Opcion:
+    def __init__(self):
+        self.__opcion = 1  # Valor por defecto (privado)
+
+    # Getter para obtener la opción actual
+    def obtener_opcion(self):
+        return self.__opcion
+
+    # Setter para cambiar la opción (con validación)
+    def cambiar_opcion(self, nueva_opcion):
+        if nueva_opcion in [1, 2, 3]:
+            self.__opcion = nueva_opcion
+        else:
+            print("Opción inválida. Debe ser 1, 2 o 3.")
+
+    # Ejecutar una acción según la opción seleccionada
+    def ejecutar(self):
+        if self.__opcion == 1:
+            print("Has seleccionado la opción 1: Ver saldo")
+        elif self.__opcion == 2:
+            print("Has seleccionado la opción 2: Realizar depósito")
+        elif self.__opcion == 3:
+            print("Has seleccionado la opción 3: Salir")
+
+# Uso del código
+mi_opcion = Opcion()
+
+# Probar cambiando la opción y ejecutando la acción
+print("Opción actual:", mi_opcion.obtener_opcion())
+mi_opcion.ejecutar()
+
+mi_opcion.cambiar_opcion(2)
+print("\nOpción cambiada a:", mi_opcion.obtener_opcion())
+mi_opcion.ejecutar()
+
+mi_opcion.cambiar_opcion(3)
+print("\nOpción cambiada a:", mi_opcion.obtener_opcion())
+mi_opcion.ejecutar()
+
+# Intentar una opción inválida
+mi_opcion.cambiar_opcion(5)
