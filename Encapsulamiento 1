@@ -1,0 +1,29 @@
+#Crear 3 objetos de Estudiante, asignar notas y mostrar los datos -
+#Encapsular los atributos de un estudiante para gestionar sus notas.
+
+class Estudiante:
+    def __init__(self, Nombre,grado, nota=0):
+        self.__Nombre = Nombre
+        self.__grado=grado
+        self.__nota = 0
+
+    def set_nota(self, nota):
+        if 1 <= nota <= 5:
+            self.__nota = nota
+        else:
+            print('ERROR, la nota debe ser entre 1 y 5')
+
+    def get_nota(self):
+        return self.__nota
+
+    def mostrar_datos(self):
+        print(f"Estudiante: {self.__Nombre}, Nota: {self.__nota}, Grado: {self.__grado} ")
+
+
+
+datos=input('Nombre del estudiante: ')
+grad=int(input('curso del estudiante:  '))
+estudiante1 = Estudiante(datos, grad)
+notaa = int(input('Digite la nota: '))
+estudiante1.set_nota(notaa)
+estudiante1.mostrar_datos()
